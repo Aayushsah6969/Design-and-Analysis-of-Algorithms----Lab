@@ -29,7 +29,46 @@ int main()
     printf("\n");
 
     int k, l, m;
-    for()
+   // ...existing code...
+
+    // Count duplicates and find the most repeating element
+    int duplicate_count = 0;
+    int max_count = 0;
+    int most_repeating = arr[0];
+
+    for (j = 0; j < i; j++) {
+        int count = 1;
+        if (arr[j] == -1) continue; // Skip already counted elements
+        for (k = j + 1; k < i; k++) {
+            if (arr[j] == arr[k]) {
+                count++;
+                arr[k] = -1; // Mark as counted
+            }
+        }
+        if (count > 1) {
+            duplicate_count++;
+        }
+        if (count > max_count) {
+            max_count = count;
+            most_repeating = arr[j];
+        }
+    }
+
+    printf("Total number of duplicate values = %d\n", duplicate_count);
+    printf("The most repeating element in the array = %d\n", most_repeating);
+
+    // Save results to output.txt
+    f_out = fopen("output.txt", "w");
+    if (f_out == NULL) {
+        printf("Error opening output file\n");
+        return 1;
+    }
+    fprintf(f_out, "Total number of duplicate values = %d\n", duplicate_count);
+    fprintf(f_out, "The most repeating element in the array = %d\n", most_repeating);
+    fclose(f_out);
+
+    return 0;
+
 
 
 }
