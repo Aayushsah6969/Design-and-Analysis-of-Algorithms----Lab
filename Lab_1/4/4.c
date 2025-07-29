@@ -20,7 +20,6 @@ int main() {
     int n = 0, num, i;
     int p2 = 5; // Number of elements to rotate
 
-    // Read array from input.txt
     f_in = fopen("input.txt", "r");
     if (f_in == NULL) {
         printf("Error opening input.txt\n");
@@ -31,7 +30,6 @@ int main() {
     }
     fclose(f_in);
 
-    // Write before rotation to output.txt
     f_out = fopen("output.txt", "w");
     if (f_out == NULL) {
         printf("Error opening output.txt\n");
@@ -43,10 +41,8 @@ int main() {
     }
     fprintf(f_out, "\n");
 
-    // Rotate first p2 elements
     ROTATE_RIGHT(arr, p2);
 
-    // Write after rotation to output.txt
     fprintf(f_out, "After ROTATE: ");
     for (i = 0; i < n; i++) {
         fprintf(f_out, "%d ", arr[i]);
