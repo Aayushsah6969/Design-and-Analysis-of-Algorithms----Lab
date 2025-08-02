@@ -1,2 +1,2 @@
-Before ROTATE: 11 22 33 44 55 66 77 88 99 
-After ROTATE: 55 11 22 33 44 66 77 88 99 
+Before ROTATE: 2 6 7 5 5 3 8 9 4 
+After ROTATE: 5 2 6 7 5 3 8 9 4 

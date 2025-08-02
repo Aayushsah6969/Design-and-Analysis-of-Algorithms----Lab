@@ -1,2 +1,2 @@
-Smallest: 1
-Largest: 777
+Smallest in the data: 2
+Largest in the data: 9

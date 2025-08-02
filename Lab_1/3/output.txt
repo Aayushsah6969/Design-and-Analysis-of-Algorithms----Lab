@@ -1,2 +1,2 @@
-Total number of duplicate values = 3
-The most repeating element in the array = 10
+Total number of duplicate values = 2
+The most repeating element in the array = 4
