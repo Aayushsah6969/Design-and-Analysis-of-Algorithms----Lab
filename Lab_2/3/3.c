@@ -14,7 +14,7 @@ void findPairsHash(int *arr, int n, int target, FILE *out) {
     for (int i = 0; i < n; i++) {
         int complement = target - arr[i];
         if (hash[complement]) {
-            fprintf(out, "(%d, %d)\n", complement, arr[i]);
+            fprintf(out, "(%d, %d), ", complement, arr[i]);
         }
         hash[arr[i]] = 1;
     }
@@ -29,7 +29,7 @@ void findPairsTwoPointer(int *arr, int n, int target, FILE *out) {
     while (left < right) {
         int sum = arr[left] + arr[right];
         if (sum == target) {
-            fprintf(out, "(%d, %d)\n", arr[left], arr[right]);
+            fprintf(out, "(%d, %d), ", arr[left], arr[right]);
             left++;
             right--;
         } else if (sum < target) {
