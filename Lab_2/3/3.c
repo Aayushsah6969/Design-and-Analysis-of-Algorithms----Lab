@@ -2,15 +2,13 @@
 #include <stdlib.h>
 #include <string.h>
 
-// Comparator for qsort
 int compare(const void *a, const void *b) {
     return (*(int*)a - *(int*)b);
 }
 
-// O(n) approach using hash table
 void findPairsHash(int *arr, int n, int target, FILE *out) {
     fprintf(out, "Pairs with sum %d using O(n) approach:\n", target);
-    int hash[10000] = {0}; // Assumes numbers are within reasonable bounds
+    int hash[10000] = {0};
     for (int i = 0; i < n; i++) {
         int complement = target - arr[i];
         if (hash[complement]) {
@@ -21,7 +19,6 @@ void findPairsHash(int *arr, int n, int target, FILE *out) {
     fprintf(out, "\n");
 }
 
-// O(n log n) approach using sorting and two pointers
 void findPairsTwoPointer(int *arr, int n, int target, FILE *out) {
     fprintf(out, "Pairs with sum %d using O(n log n) approach:\n", target);
     qsort(arr, n, sizeof(int), compare);
