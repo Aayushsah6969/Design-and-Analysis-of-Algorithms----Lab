@@ -46,7 +46,6 @@ int main(int* argc, char* argv[]) {
     }
     printf("\n");
 
-    // Write sorted array to output file
     for (int j = 0; j < count; j++) {
         fprintf(f_out, "%d ", arr[j]);
     }

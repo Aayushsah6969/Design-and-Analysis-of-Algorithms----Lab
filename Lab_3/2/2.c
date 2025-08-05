@@ -14,7 +14,7 @@ void insertionSort(int arr[], int N){
     }
 }
 
-int main(int argc, char *argv[]) {
+int main(int* argc, char *argv[]) {
 
     FILE *f_in, *f_out;
     char* input_file = argv[1];
