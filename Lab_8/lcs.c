@@ -6,20 +6,12 @@ int max(int a, int b) {
     return (a > b) ? a : b;
 }
 
-/*
- * Finds the Longest Common Subsequence (LCS) of two strings.
- * X: The first string.
- * Y: The second string.
- * m: Length of the first string.
- * n: Length of the second string.
- */
+
 void findLCS(char *X, char *Y, int m, int n) {
     // Create a 2D array to store lengths of LCSs
     int L[m + 1][n + 1];
     int i, j;
 
-    // Build the L[m+1][n+1] table in a bottom-up fashion.
-    // L[i][j] contains the length of LCS of X[0..i-1] and Y[0..j-1]
     for (i = 0; i <= m; i++) {
         for (j = 0; j <= n; j++) {
             if (i == 0 || j == 0)
@@ -33,27 +25,22 @@ void findLCS(char *X, char *Y, int m, int n) {
         }
     }
 
-    // The length of the LCS is in the bottom-right cell
     int index = L[m][n];
     printf("\nLCS Length: %d\n", index);
 
 
-    // Create a character array to store the LCS string
     char lcs[index + 1];
     lcs[index] = '\0'; // Set the terminating null character
 
-    // Start from the bottom-right corner and store characters in lcs[]
     i = m;
     j = n;
     while (i > 0 && j > 0) {
-        // If current character in X and Y are same, then it is part of LCS
         if (X[i - 1] == Y[j - 1]) {
             lcs[index - 1] = X[i - 1]; // Put current character in result
             i--;
             j--;
             index--;
         }
-        // If not same, then find the larger of two and go in the direction of larger value
         else if (L[i - 1][j] > L[i][j - 1])
             i--;
         else

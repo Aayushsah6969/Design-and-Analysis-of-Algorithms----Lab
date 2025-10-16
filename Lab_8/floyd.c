@@ -1,11 +1,9 @@
 #include <stdio.h>
 
-// Define a large number to represent infinity
 #define INF 99999
 
 int numVertices;
 
-// Function to print the solution matrix
 void printMatrix(int dist[][numVertices]) {
     printf("\nShortest path matrix:\n");
     for (int i = 0; i < numVertices; i++) {
@@ -19,9 +17,7 @@ void printMatrix(int dist[][numVertices]) {
     }
 }
 
-// Function to reconstruct and print the shortest path
 void printPath(int path[][numVertices], int u, int v) {
-    // If there is no path
     if (path[u][v] == -1) {
         printf("No path from %d to %d exists\n", u + 1, v + 1);
         return;
@@ -35,17 +31,12 @@ void printPath(int path[][numVertices], int u, int v) {
 }
 
 
-/*
- * Solves the all-pairs shortest path problem using Floyd Warshall algorithm.
- * graph: The input adjacency matrix.
- */
+
 void floydWarshall(int graph[][numVertices]) {
     int dist[numVertices][numVertices];
     int path[numVertices][numVertices];
     int i, j, k;
 
-    // Initialize the solution matrix same as input graph matrix.
-    // Initialize the path matrix.
     for (i = 0; i < numVertices; i++) {
         for (j = 0; j < numVertices; j++) {
             dist[i][j] = graph[i][j];
@@ -57,11 +48,8 @@ void floydWarshall(int graph[][numVertices]) {
         }
     }
 
-    // Main algorithm: consider each vertex as an intermediate vertex.
     for (k = 0; k < numVertices; k++) {
-        // Pick all vertices as source one by one
         for (i = 0; i < numVertices; i++) {
-            // Pick all vertices as destination for the above picked source
             for (j = 0; j < numVertices; j++) {
                 // If vertex k is on the shortest path from i to j,
                 // then update the value of dist[i][j]
